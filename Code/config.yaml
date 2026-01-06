@@ -1,0 +1,36 @@
+seed: 42
+device: cuda_if_available
+data:
+  hf_repo: daniel3303/StoryReasoning
+  seq_len: 4
+  image_size: 64
+  channels: 3
+  max_caption_len: 48
+  vocab_size: 12000
+  pad_idx: 0
+training:
+  batch_size: 8
+  epochs: 16
+  lr: 0.0003
+  weight_decay: 0.0001
+  grad_clip: 1.0
+model:
+  embed_dim: 192
+  text_hidden: 256
+  img_feat_dim: 256
+  fusion_dim: 384
+  seq_hidden: 384
+  attn_dim: 192
+  image_decoder_channels: [256, 128, 64, 32]
+loss:
+  caption_ce_weight: 1.0
+  image_l1_weight: 20.0
+  latent_mse_weight: 0.5
+ae:
+  use: true
+  pretrain_epochs: 15
+  ckpt: results/ae/ae_final.pt
+  freeze_decoder: true
+log:
+  ckpt_dir: results/checkpoints
+  sample_dir: results/samples
