@@ -1,4 +1,4 @@
-StoryReasoning Image Generation with Autoencoders
+#StoryReasoning Image Generation with Autoencoders
 
 A Multimodal Deep Learning Approach
 
